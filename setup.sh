@@ -21,6 +21,7 @@ conda create --name droid-w python=3.10 -y
 source activate droid-w
 
 pip install numpy==1.26.3
+pip install "setuptools<81"
 conda install --channel "nvidia/label/cuda-11.8.0" cuda-toolkit
 pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu118
 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-2.1.0+cu118.html
