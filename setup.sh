@@ -12,7 +12,7 @@ export PATH="$(pwd)/miniconda/bin:$PATH"
 
 conda init bash
 source ~/.bashrc
-conda config --set auto_accept_tos=true
+conda config --set auto_accept_tos true
 
 [ ! -d ".git" ] && git submodule update --init --recursive .
 
