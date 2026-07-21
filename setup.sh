@@ -10,6 +10,7 @@ export PATH="/opt/miniconda/bin:$PATH"
 
 conda init bash
 source ~/.bashrc
+conda tos accept --override-channels
 
 [ ! -d ".git" ] && git submodule update --init --recursive .
 
