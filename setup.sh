@@ -3,12 +3,12 @@ set -e
 
 apt-get update && apt-get install -y git wget build-essential unzip
 
-if ! command -v conda &> /dev/null; then
+if [ ! -d "miniconda" ]; then
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-    bash miniconda.sh -b -p /opt/miniconda
+    bash miniconda.sh -b -p ./miniconda
     rm miniconda.sh
 fi
-export PATH="/opt/miniconda/bin:$PATH"
+export PATH="$(pwd)/miniconda/bin:$PATH"
 
 conda init bash
 source ~/.bashrc
