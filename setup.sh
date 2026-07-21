@@ -3,7 +3,7 @@ set -e
 
 apt-get update && apt-get install -y git wget build-essential unzip
 
-if [ ! -d "/opt/miniconda" ]; then
+if ! command -v conda &> /dev/null; then
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
     bash miniconda.sh -b -p /opt/miniconda
     rm miniconda.sh
