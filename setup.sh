@@ -18,7 +18,8 @@ conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
 [ ! -d ".git" ] && git submodule update --init --recursive .
 
 conda create --name droid-w python=3.10 -y
-source activate droid-w
+source "$(pwd)/miniconda/etc/profile.d/conda.sh"
+conda activate droid-w
 
 pip install numpy==1.26.3
 pip install "setuptools<81"
@@ -29,7 +30,7 @@ pip3 install -U xformers==0.0.22.post7+cu118 --index-url https://download.pytorc
 
 python -m pip install -e thirdparty/lietorch --no-build-isolation
 python -m pip install -e thirdparty/diff-gaussian-rasterization-w-pose --no-build-isolation
-python -m pip install -e thirdparty/simple-knn --no-build-isolation
+python -m pip install -e thirdparty/simple-knn --no-build-isolation --config-settings editable_mode=compat
 
 python -c "import torch; import lietorch; import simple_knn; import diff_gaussian_rasterization; print(torch.cuda.is_available())"
 
