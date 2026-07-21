@@ -12,7 +12,8 @@ export PATH="$(pwd)/miniconda/bin:$PATH"
 
 conda init bash
 source ~/.bashrc
-conda config --set auto_accept_tos true
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
 
 [ ! -d ".git" ] && git submodule update --init --recursive .
 
